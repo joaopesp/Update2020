@@ -18,6 +18,7 @@ namespace Aula223.Controllers
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
+            ViewData["email"] = "teucu@gmail.com";
 
             return View();
         }
