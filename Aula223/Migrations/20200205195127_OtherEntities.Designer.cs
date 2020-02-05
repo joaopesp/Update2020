@@ -3,14 +3,16 @@ using System;
 using Aula223.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Aula223.Migrations
 {
     [DbContext(typeof(Aula223Context))]
-    partial class Aula223ContextModelSnapshot : ModelSnapshot
+    [Migration("20200205195127_OtherEntities")]
+    partial class OtherEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
