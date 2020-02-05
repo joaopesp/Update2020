@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Aula223.Models;
+using Aula223.Data;
 
 namespace Aula223
 {
@@ -39,14 +40,17 @@ namespace Aula223
             services.AddDbContext<Aula223Context>(options =>
                 options.UseMySql(Configuration.GetConnectionString("Aula223Context"), builder =>
                     builder.MigrationsAssembly("Aula223")));
+
+            services.AddScoped<SeedingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, SeedingService seedingService)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                seedingService.Seed();
             }
             else
             {
