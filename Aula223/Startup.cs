@@ -37,7 +37,8 @@ namespace Aula223
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<Aula223Context>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("Aula223Context")));
+                options.UseMySql(Configuration.GetConnectionString("Aula223Context"), builder =>
+                    builder.MigrationsAssembly("Aula223")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
