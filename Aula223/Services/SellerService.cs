@@ -23,7 +23,6 @@ namespace Aula223.Services
 
         public void Inset(Seller obj)
         {
-            obj.Department = _context.Department.First();
             _context.Add(obj);
             _context.SaveChanges();
         }
