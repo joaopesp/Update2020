@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Aula223.Models;
 using Aula223.Data;
+using Aula223.Services;
 
 namespace Aula223
 {
@@ -42,6 +43,7 @@ namespace Aula223
                     builder.MigrationsAssembly("Aula223")));
 
             services.AddScoped<SeedingService>();
+            services.AddScoped<SellerService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
