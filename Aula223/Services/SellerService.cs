@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Aula223.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aula223.Services
 {
@@ -29,7 +30,7 @@ namespace Aula223.Services
 
         public Seller FindById(int id)
         {
-            return _context.Seller.FirstOrDefault(obj => obj.Id == id);
+            return _context.Seller.Include(obj => obj.Department).FirstOrDefault(obj => obj.Id == id);
         }
 
         public void remove(int id)
@@ -39,5 +40,9 @@ namespace Aula223.Services
             _context.SaveChanges();
         }
 
+        internal void Remove(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
